@@ -1,3 +1,6 @@
+/* =========================
+   Global Reset & Cursor
+========================= */
 * {
     margin: 0;
     padding: 0;
@@ -10,35 +13,46 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     background: linear-gradient(-45deg, #fee9f7, #e8f5fe, #fef2e8, #f0ffe8);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
     position: relative;
+    color: #2d2d2d;
 }
 
 .cursor {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     background: pink;
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
     mix-blend-mode: difference;
-    transition: transform 0.2s;
+    transition: transform 0.15s ease;
+    z-index: 999;
 }
 
+/* =========================
+   Hero / Landing Section
+========================= */
 .container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     z-index: 1;
+    padding: 20px;
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     color: #ff69b4;
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    text-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
     margin-bottom: 2rem;
     opacity: 0;
 }
@@ -50,61 +64,70 @@ h1 {
     min-height: 2em;
 }
 
+/* Primary CTA button (landing) */
 .cta-button {
-    padding: 1rem 2rem;
+    padding: 1rem 2.4rem;
     font-size: 1.2rem;
     background: linear-gradient(45deg, #ff69b4, #ff99cc);
     border: none;
     border-radius: 50px;
     color: white;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.45);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     opacity: 0;
 }
 
 .cta-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 105, 180, 0.7);
+    transform: scale(1.08);
+    box-shadow: 0 0 28px rgba(255, 105, 180, 0.65);
 }
 
+/* =========================
+   Floating Decorations
+========================= */
 .floating {
     position: absolute;
     pointer-events: none;
     opacity: 0;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    .greeting { font-size: 1.2rem; }
-    .cta-button { font-size: 1rem; }
-}
-
+/* =========================
+   Final Message Section
+========================= */
 .final-message {
+    max-width: 820px;
+    padding: 80px 24px 40px;
     text-align: center;
-    max-width: 800px;
-    margin: 80px auto;
-    padding: 20px;
-    line-height: 1.8;
+    line-height: 1.9;
 }
 
+.final-message h2 {
+    font-size: 2.2rem;
+    color: #ff5fa2;
+    margin-bottom: 30px;
+}
+
+.final-message p {
+    font-size: 1.1rem;
+    margin-bottom: 22px;
+    opacity: 0.95;
+}
+
+/* =========================
+   Button System
+========================= */
 .button-group {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
+    gap: 20px;
 }
 
 .btn {
     text-decoration: none;
-    padding: 14px 36px;
+    padding: 14px 38px;
     border-radius: 40px;
     font-size: 18px;
     font-weight: 500;
@@ -112,7 +135,7 @@ h1 {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* Soft goodbye button */
+/* Soft emotional button */
 .btn-soft {
     background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
     color: #2d2d2d;
@@ -120,16 +143,141 @@ h1 {
 
 .btn-soft:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.22);
 }
 
-/* Valentine CTA button */
+/* =========================
+   Valentine Invite Section
+========================= */
+.valentine-invite {
+    margin-top: 120px;
+    padding: 60px 20px 100px;
+    text-align: center;
+}
+
+.valentine-invite h2 {
+    font-size: 2rem;
+    color: #ff4f8b;
+    margin-bottom: 14px;
+}
+
+.valentine-invite p {
+    font-size: 1.15rem;
+    margin-bottom: 34px;
+    opacity: 0.9;
+}
+
+/* Valentine CTA */
 .btn-heart {
     background: linear-gradient(135deg, #ff758c, #ff7eb3);
     color: white;
 }
 
 .btn-heart:hover {
-    transform: scale(1.05);
-    box-shadow: 0 18px 40px rgba(255, 120, 150, 0.45);
+    transform: scale(1.06);
+    box-shadow: 0 18px 42px rgba(255, 120, 150, 0.45);
+}
+
+/* Birthday Button – soft but intentional */
+.birthday-btn {
+    font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+
+    padding: 16px 44px;
+    border-radius: 999px;
+
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    color: #2d2d2d;
+
+    box-shadow:
+        0 8px 18px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.birthday-btn:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 14px 32px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.birthday-btn:active {
+    transform: translateY(-1px);
+    box-shadow:
+        0 6px 14px rgba(0, 0, 0, 0.18),
+        inset 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+/* Valentine Button – same soul, deeper emotion */
+.valentine-btn {
+    font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: capitalize;
+
+    padding: 18px 48px;
+    border-radius: 999px;
+
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: #ffffff;
+
+    box-shadow:
+        0 10px 22px rgba(255, 120, 150, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.valentine-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 18px 40px rgba(255, 120, 150, 0.55),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.valentine-btn:active {
+    transform: translateY(-1px);
+    box-shadow:
+        0 7px 16px rgba(255, 120, 150, 0.4),
+        inset 0 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================
+   Animations
+========================= */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    .greeting {
+        font-size: 1.2rem;
+    }
+
+    .final-message h2,
+    .valentine-invite h2 {
+        font-size: 1.7rem;
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px 30px;
+    }
 }
